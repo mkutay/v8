@@ -16,7 +16,7 @@ import { TypographyBlockquote } from '@/components/typography/blockquote';
 import { MyCode, MyInlineCode } from '@/components/typography/code-block';
 import { TypographyParagraph } from '@/components/typography/paragraph';
 import { ToggleParentheses } from '@/components/toggleParentheses';
-import { TypographyList } from '@/components/typography/list';
+import { TypographyOList, TypographyUList } from '@/components/typography/list';
 import { postImages } from '@/config/images';
 import { cn } from '@/lib/utils';
 
@@ -128,9 +128,9 @@ export const components: MDXComponents = {
     </TypographyBlockquote>
   ),
   ul: (props: DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>) => (
-    <TypographyList {...props}>
+    <TypographyUList {...props}>
       {props.children}
-    </TypographyList>
+    </TypographyUList>
   ),
   hr: (props: DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement>) => (
     <hr {...props} className={cn("my-6 border-t-2 border-muted", props.className)} />
@@ -139,5 +139,10 @@ export const components: MDXComponents = {
     <ToggleParentheses>
       {props.children}
     </ToggleParentheses>
-  )
+  ),
+  ol: (props: DetailedHTMLProps<HTMLAttributes<HTMLOListElement>, HTMLOListElement>) => (
+    <TypographyOList {...props}>
+      {props.children}
+    </TypographyOList>
+  ),
 };

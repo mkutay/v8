@@ -115,13 +115,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 }
 
 function Side({ toc }: { toc: TocItem[] }) {
+  if (toc.length === 0) return null;
   return (
     <div className="flex flex-col gap-4 mt-[18px] max-w-[300px]">
       <TypographyH2>Table of Contents</TypographyH2>
       <div className="flex flex-col gap-2">
         {toc.map((item, index) => (
           <Link key={index} href={`${item.href}`} className={cn("text-foreground hover:text-foreground/80 transition-all",
-            item.depth === 2 ? "text-lg/snug" : item.depth === 3 ? "text-md/snug" : item.depth === 4 ? "text-sm/snug" : "text-sm/snug"
+            item.depth === 2 ? "text-lg/snug" : item.depth === 3 ? "text-md/snug pl-2" : item.depth === 4 ? "text-sm/snug pl-4" : "text-sm/snug pl-5"
           )}>
             {item.value}
           </Link>
