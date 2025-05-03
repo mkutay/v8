@@ -16,8 +16,8 @@ export default function DoublePane({
 }>) {
   if (!side) {
     return (
-      <section className="px-4 w-full mx-auto lg:max-w-6xl md:mb-12 mb-6">
-        <div className="w-full flex flex-col gap-4 max-w-prose">
+      <section className="w-full mx-auto lg:max-w-6xl md:mb-12 mb-6">
+        <div className="w-full space-y-4 max-w-prose lg:mx-0 mx-auto px-4">
           <div>
             {children}
           </div>
@@ -34,8 +34,8 @@ export default function DoublePane({
   }
 
   return (
-    <section className="px-4 w-full mx-auto lg:max-w-6xl md:mb-12 mb-6 flex flex-row gap-12">
-      <div className="w-full flex flex-col gap-4 max-w-prose">
+    <section className="w-full mx-auto lg:max-w-6xl md:mb-12 mb-6 flex flex-row gap-12">
+      <div className="w-full space-y-4 max-w-prose lg:mx-0 mx-auto px-4">
         <div>
           {children}
         </div>
@@ -47,7 +47,7 @@ export default function DoublePane({
           <EmailSubButton />
         </div>}
       </div>
-      <div className="w-fit sticky top-16 h-fit">
+      <div className="w-fit sticky top-16 h-fit lg:flex hidden">
         {side}
       </div>
     </section>
