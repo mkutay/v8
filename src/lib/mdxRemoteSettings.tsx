@@ -40,8 +40,8 @@ export const options: EvaluateOptions = {
       remarkLint,
       remarkMath,
       [remarkCodeHike, chConfig],
-      remarkFlexibleToc,
       [remarkHeadingId, { defaults: true, uniqueDefaults: true }],
+      remarkFlexibleToc,
     ],
     rehypePlugins: [rehypeKatex],
     recmaPlugins: [
