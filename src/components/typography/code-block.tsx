@@ -1,4 +1,6 @@
-import { AnnotationHandler, highlight, Inline, InnerLine, InnerPre, InnerToken, Pre, RawCode } from 'codehike/code';
+import { AnnotationHandler, highlight, HighlightedCode, Inline, InnerLine, InnerPre, InnerToken, Pre } from 'codehike/code';
+
+import { myTheme } from './code-block-theme';
 
 // Handler for CodeHike to wrap code that exceeds the width.
 export const wordWrap: AnnotationHandler = {
@@ -68,12 +70,12 @@ export const lineNumbers: AnnotationHandler = {
   },
 }
 
-export const MyCode = async ({ codeblock }: { codeblock: RawCode }) => {
-  const highlighted = await highlight(codeblock, 'github-dark');
-  return <Pre code={highlighted} handlers={[scrollable, lineNumbers]} className="mt-6 px-1 py-3 text-sm rounded-lg bg-[#0d1117] font-mono" />
+export const MyCode = async ({ codeblock }: { codeblock: HighlightedCode }) => {
+  const highlighted = await highlight(codeblock, myTheme);
+  return <Pre code={highlighted} handlers={[scrollable, lineNumbers]} className="mt-6 px-1 py-2 text-sm rounded-lg font-mono bg-[#303446]" />
 };
 
-export const MyInlineCode = async ({ codeblock }: { codeblock: RawCode }) => {
-  const highlighted = await highlight(codeblock, 'github-dark');
-  return <Inline code={highlighted} style={highlighted.style} className="px-1 py-0.5 rounded-sm font-mono" />
+export const MyInlineCode = async ({ codeblock }: { codeblock: HighlightedCode }) => {
+  const highlighted = await highlight(codeblock, myTheme);
+  return <Inline code={highlighted} style={codeblock.style} className="px-1 py-0.5 rounded-sm font-mono bg-[#303446]" />
 };

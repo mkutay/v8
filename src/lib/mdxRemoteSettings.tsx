@@ -26,9 +26,6 @@ const chConfig: CodeHikeConfig = {
     code: 'MyCode',
     inlineCode: 'MyInlineCode',
   },
-  syntaxHighlighting: {
-    theme: 'github-dark',
-  },
 };
 
 // Settings and plugins to use with MDXRemote to compile mdx files
