@@ -57,14 +57,14 @@ export const lineNumbers: AnnotationHandler = {
   Line: (props) => {
     const width = props.totalLines.toString().length + 1;
     return (
-      <div className="flex">
+      <div className="flex flex-row">
         <span
-          className="text-right select-none"
-          style={{ minWidth: `${width}ch` }}
+          className="px-2 select-none text-[#626880]"
+          style={{ minWidth: `${width}ch`}}
         >
           {props.lineNumber}
         </span>
-        <InnerLine merge={props} className="flex-1 pl-2" />
+        <InnerLine merge={props} />
       </div>
     );
   },
@@ -77,5 +77,5 @@ export const MyCode = async ({ codeblock }: { codeblock: HighlightedCode }) => {
 
 export const MyInlineCode = async ({ codeblock }: { codeblock: HighlightedCode }) => {
   const highlighted = await highlight(codeblock, myTheme);
-  return <Inline code={highlighted} style={codeblock.style} className="px-1 py-0.5 rounded-sm font-mono bg-[#303446]" />
+  return <Inline code={highlighted} className="px-1 py-0.5 rounded-sm font-mono text-sm bg-[#303446]" />
 };
