@@ -1,5 +1,6 @@
 import { AnnotationHandler, highlight, HighlightedCode, Inline, InnerLine, InnerPre, InnerToken, Pre } from 'codehike/code';
 
+import { CopyCodeButton } from '@/components/copy-button';
 import { myTheme } from './code-block-theme';
 
 // Handler for CodeHike to wrap code that exceeds the width.
@@ -72,7 +73,14 @@ export const lineNumbers: AnnotationHandler = {
 
 export const MyCode = async ({ codeblock }: { codeblock: HighlightedCode }) => {
   const highlighted = await highlight(codeblock, myTheme);
-  return <Pre code={highlighted} handlers={[scrollable, lineNumbers]} className="mt-6 px-1 py-2 text-sm rounded-lg font-mono bg-[#303446]" />
+  return <div className="relative">
+    <CopyCodeButton text={highlighted.code} className="absolute top-2 right-2" />
+    <Pre
+      code={highlighted}
+      handlers={[scrollable, lineNumbers]}
+      className="mt-6 px-1 py-2 text-sm rounded-lg font-mono bg-[#303446]"
+    />
+  </div>;
 };
 
 export const MyInlineCode = async ({ codeblock }: { codeblock: HighlightedCode }) => {
