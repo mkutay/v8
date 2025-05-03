@@ -22,7 +22,7 @@ export default function DoublePane({
             {children}
           </div>
           <TypographyHr className="my-4" />
-          {!hideFollowLink ? <div className="flex flex-row justify-between items-center">
+          {!hideFollowLink ? <div className="justify-between items-center gap-4 flex flex-row flex-wrap">
             <EmailSubButton />
             <FollowNext />
           </div> : <div className="flex flex-row justify-end items-center">
@@ -40,7 +40,7 @@ export default function DoublePane({
           {children}
         </div>
         <TypographyHr className="my-4" />
-        {!hideFollowLink ? <div className="flex flex-row justify-between items-center">
+        {!hideFollowLink ? <div className="justify-between items-center gap-4 flex flex-row flex-wrap">
           <EmailSubButton />
           <FollowNext />
         </div> : <div className="flex flex-row justify-end items-center">
@@ -72,12 +72,12 @@ function EmailSubButton() {
 
 function FollowNext() {
   return (
-    <div className="text-primary group pl-0 hover:pl-2 transition-all animate-in flex flex-row items-start justify-end">
-      <div className="pr-4 group-hover:pr-2 transition-all animate-in mt-[5px] sm:flex hidden">
+    <div className="text-primary group pl-0 hover:pl-2 transition-all animate-in flex flex-row items-center flex-grow justify-end">
+      <div className="pr-4 group-hover:pr-2 transition-all animate-in">
         <ArrowRight stroke="currentColor" strokeWidth="2px" width="18px" height="18px"/>
       </div>
-      <Link href="/follow-next" className="text-xl font-normal italic tracking-wider uppercase text-right">
-        find out who to follow next
+      <Link href="/follow-next" className="text-xl font-normal italic tracking-wider uppercase text-right w-fit whitespace-nowrap">
+        Follow Next!
       </Link>
     </div>
   )
