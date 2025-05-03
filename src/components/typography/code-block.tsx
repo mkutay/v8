@@ -19,6 +19,36 @@ export const wordWrap: AnnotationHandler = {
   Token: (props) => <InnerToken merge={props} style={{ textIndent: 0 }} />,
 }
 
+export const scrollable: AnnotationHandler = {
+  name: 'scrollable',
+  Pre: (props) => (
+    <InnerPre
+      merge={props}
+      className="overflow-x-auto overflow-y-hidden"
+    />
+  ),
+  Line: (props) => (
+    <InnerLine merge={props}>
+      <div
+        style={{
+          textIndent: `${-props.indentation}ch`,
+          marginLeft: `${props.indentation}ch`,
+          marginRight: `8px`,
+        }}
+      >
+        {props.children}
+      </div>
+    </InnerLine>
+  ),
+  Token: (props) => (
+    <InnerToken
+      merge={props}
+      // className="overflow-x-auto overflow-y-hidden whitespace-nowrap"
+      style={{ textIndent: 0 }}
+    />
+  ),
+}
+
 // Handler for CodeHike to add line numbers.
 export const lineNumbers: AnnotationHandler = {
   name: 'line-numbers',
@@ -40,7 +70,7 @@ export const lineNumbers: AnnotationHandler = {
 
 export const MyCode = async ({ codeblock }: { codeblock: RawCode }) => {
   const highlighted = await highlight(codeblock, 'github-dark');
-  return <Pre code={highlighted} handlers={[wordWrap, lineNumbers]} className="mt-6 px-1 py-3 rounded-lg bg-[#0d1117] font-mono" />
+  return <Pre code={highlighted} handlers={[scrollable, lineNumbers]} className="mt-6 px-1 py-3 text-sm rounded-lg bg-[#0d1117] font-mono" />
 };
 
 export const MyInlineCode = async ({ codeblock }: { codeblock: RawCode }) => {
