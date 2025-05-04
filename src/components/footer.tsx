@@ -36,6 +36,7 @@ export default function Footer() {
                   key={item.link}
                   href={item.link}
                   className="hover:text-foreground/80 transition-all"
+                  prefetch={false}
                 >
                   {item.title}
                 </Link>
@@ -52,6 +53,7 @@ export default function Footer() {
                   key={item.link}
                   href={item.link}
                   className="hover:text-foreground/80 transition-all"
+                  prefetch={false}
                 >
                   {item.title}
                 </Link>
@@ -82,6 +84,7 @@ export default function Footer() {
                   key={item.link}
                   href={item.link}
                   className="hover:text-foreground/80 transition-all"
+                  prefetch={false}
                 >
                   {item.title}
                 </Link>
@@ -98,6 +101,7 @@ export default function Footer() {
                   key={item.link}
                   href={item.link}
                   className="hover:text-foreground/80 transition-all"
+                  prefetch={false}
                 >
                   {item.title}
                 </Link>
