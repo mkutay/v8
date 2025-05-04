@@ -19,7 +19,7 @@ import { PostMeta } from '@/config/types';
 import { cn } from '@/lib/utils';
 
 export const dynamic = 'force-static';
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
