@@ -24,7 +24,7 @@ export default function Page() {
   const projects = getPosts({ tags: ['project'] });
 
   return (
-    <DoublePane>
+    <DoublePane hideFollowLink>
       <h1 className="scroll-m-20 text-3xl font-semibold tracking-wide text-primary uppercase my-6">
         Different Coding Projects I Did
       </h1>

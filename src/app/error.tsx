@@ -1,3 +1,5 @@
+'use client';
+
 import { TypographyH1 } from '@/components/typography/headings';
 
 export default function Error({
