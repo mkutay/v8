@@ -45,12 +45,13 @@ export function convertParenthesesToComponent(str: string): string {
     return `__SPECIAL_ELEMENT_${specialElements.length - 1}__`;
   });
 
-  // Now process regular text parentheses with spaces before and potentially punctuation after
-  // Handle both spaces and newlines after parentheses
-  const regex = / \(([^)]+)\)([.,;:!?]?)(\s|$|\n)/g;
+  // Process regular text parentheses with spaces before and potentially punctuation after
+  // Handle both spaces and newlines after parentheses, including special punctuation like em dashes
+  // that may or may not be followed by whitespace
+  const regex = / \(([^)]+)\)([.,;:!?—–]?)(\s|$|\n)?/g;
   cleanedString = cleanedString.replace(regex, (match, content, punctuation, whitespace) => {
-    // Preserve the exact type of whitespace (space, newline, or end of string)
-    return ` <ToggleParentheses>${content}</ToggleParentheses>${punctuation}${whitespace}`;
+    // If whitespace is undefined (no whitespace after punctuation), use empty string
+    return ` <ToggleParentheses>${content}</ToggleParentheses>${punctuation}${whitespace || ''}`;
   });
 
   // Restore special elements - using a more robust approach
