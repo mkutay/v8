@@ -59,6 +59,7 @@ export const components: MDXComponents = {
         height: 'auto',
       }}
       placeholder="blur"
+      quality={45}
     />
   ),
   img: (props: DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => (
@@ -72,6 +73,7 @@ export const components: MDXComponents = {
         height: 'auto',
       }}
       placeholder="blur"
+      quality={45}
     />
   ),
   Link: (props: ComponentProps<typeof Link>) => (
