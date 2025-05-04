@@ -3,7 +3,7 @@ import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { format } from 'date-fns';
 
-import { components, options } from '@/lib/mdxRemoteSettings';
+import { components, options } from '@/config/mdxRemoteSettings';
 import { getPosts } from '@/lib/contentQueries';
 import { cn } from '@/lib/utils';
 import { images } from '@/config/images';

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { getPostFiles, getPostProps } from '@/lib/contentQueries';
-import { components, options } from '@/lib/mdxRemoteSettings';
+import { components, options } from '@/config/mdxRemoteSettings';
 import { siteConfig } from '@/config/site';
 import CopyToClipboard from '@/components/copyToClipboard';
 import { PostViewCounter } from '@/components/postViewCounter';

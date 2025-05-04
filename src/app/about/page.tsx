@@ -2,7 +2,7 @@ import { MDXRemote } from "next-mdx-remote-client/rsc";
 import Image from 'next/image';
 
 import { TypographyH1 } from "@/components/typography/headings";
-import { components, options } from '@/lib/mdxRemoteSettings';
+import { components, options } from '@/config/mdxRemoteSettings';
 import { getAboutProps } from '@/lib/contentQueries';
 import DoublePane from '@/components/doublePane';
 import { siteConfig } from '@/config/site';

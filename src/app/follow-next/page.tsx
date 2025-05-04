@@ -5,7 +5,7 @@ import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
-import { components, options } from '@/lib/mdxRemoteSettings';
+import { components, options } from '@/config/mdxRemoteSettings';
 import { followNextImages } from '@/config/images';
 
 export const dynamic = 'force-static';
