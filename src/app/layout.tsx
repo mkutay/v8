@@ -8,7 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import NavBar from '@/components/navBar';
 import Footer from '@/components/footer';
 import { siteConfig } from '@/config/site';
-import { plex, zodiak } from '@/lib/fonts';
+import { plex, zodiak } from '@/config/fonts';
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteConfig.url}`),
