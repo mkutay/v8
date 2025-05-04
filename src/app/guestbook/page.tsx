@@ -1,13 +1,14 @@
 import { Suspense } from 'react';
 
 import { Skeleton } from '@/components/ui/skeleton';
-import { GuestBookSignIn } from '@/app/(doublePanedLayout)/guestbook/buttons';
-import GuestbookForm from '@/app/(doublePanedLayout)/guestbook/form';
 import { auth } from '@/lib/auth';
 import { getGuestbookEntries } from '@/lib/database-queries/guestbook';
 import { cn } from '@/lib/utils';
 import { EntryData } from '@/config/types';
 import { siteConfig } from '@/config/site';
+import DoublePane from '@/components/doublePane';
+import GuestbookForm from './form';
+import { GuestBookSignIn } from './buttons';
 
 export const metadata = {
   title: 'Sign and Mark My Guestbook',
@@ -26,7 +27,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <>
+    <DoublePane>
       <h1 className="scroll-m-20 text-3xl font-semibold tracking-wide text-primary uppercase my-6">
         Sign My Guestbook!
       </h1>
@@ -38,7 +39,7 @@ export default function Page() {
           <GuestbookEntries />
         </Suspense>
       </main>
-    </>
+    </DoublePane>
   );
 }
 
@@ -47,11 +48,11 @@ async function Form() {
 
   return session?.user ? (
     <div className="flex flex-col gap-2">
-      <GuestbookForm/>
+      <GuestbookForm />
     </div>
   ) : (
     <div className="items-center justify-center flex">
-      <GuestBookSignIn/>
+      <GuestBookSignIn />
     </div>
   );
 }

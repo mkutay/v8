@@ -1,6 +1,7 @@
 import ProjectCard from '@/components/projectCard';
 import { getPosts } from '@/lib/contentQueries';
 import { siteConfig } from '@/config/site';
+import DoublePane from '@/components/doublePane';
 
 export const dynamic = 'force-static';
 
@@ -23,7 +24,7 @@ export default function Page() {
   const projects = getPosts({ tags: ['project'] });
 
   return (
-    <>
+    <DoublePane>
       <h1 className="scroll-m-20 text-3xl font-semibold tracking-wide text-primary uppercase my-6">
         Different Coding Projects I Did
       </h1>
@@ -32,6 +33,6 @@ export default function Page() {
           <ProjectCard props={project} key={project.slug}/>
         ))}
       </div>
-    </>
+    </DoublePane>
   );
 }
