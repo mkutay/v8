@@ -1,7 +1,3 @@
-'use client';
-
-import { useEffect } from 'react';
-
 import { TypographyH1 } from '@/components/typography/headings';
 
 export default function Error({
@@ -9,10 +5,6 @@ export default function Error({
 }: {
   error: Error;
 }) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
   return (
     <section className="mx-auto max-w-prose lg:max-w-6xl px-4 py-8">
       <TypographyH1>
